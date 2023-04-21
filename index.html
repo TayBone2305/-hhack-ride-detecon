@@ -36,8 +36,8 @@ scrollZoom: false
 
 var radwege = result
 
-  const response = await fetch('./Fahrradwege_routing.geojson');
-  const jsonData = await response.then(function(result){
+  const response = fetch('./Fahrradwege_routing.geojson');
+  const jsonData = response.then(function(result){
 
   	radwege = result;
   });
