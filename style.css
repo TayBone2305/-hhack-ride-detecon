@@ -1,14 +1,19 @@
-.center {
-  margin-left: auto;
-  margin-right: auto;
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif
 }
 
-.container {
-  width: auto;
-  height: auto;
-  margin: 50px;
-  outline: solid 1px black;
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: #ddd;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.map {
+  width: 800px;
+  height: 500px;
+  background: #fff;
 }
