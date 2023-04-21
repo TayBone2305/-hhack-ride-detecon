@@ -1,0 +1,14 @@
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  margin: 50px;
+  outline: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
