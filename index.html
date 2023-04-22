@@ -274,12 +274,29 @@ function getClosestNode(search_coord){
 
 
 function routing(start_node, end_node){
+
+
+//remove lines
+for (n in lines_ids){
+	try{
+	map.removeLayer(lines_ids[n])
+	map.removeSource(lines_ids[n])
+	}catch(error){}
+}
+lines_ids = []
+
+
+
+
+
 	path = findShortestPath(graphBasic, start_node, end_node).path
 
 	drawPath(path)
 }
 
+var lines_ids = []
 
+//map.removeLayer('route')
 
 function drawPath(nodeArray){
 	edges_ids = []
@@ -294,14 +311,15 @@ function drawPath(nodeArray){
 	for ( j in edges_ids){
 		//edges_objs.push(edges[edges_ids[j]])
 
-		//console.log('src_'+edges_ids[j])
-
+		console.log(edges[edges_ids[j]].start)
+		console.log(nodeArray.includes(edges[edges_ids[j]].start))
+		console.log(nodeArray)
 		//try{
 
-		if(nodeArray.includes(edges[edges_ids[j]].start) && nodeArray.includes(edges[edges_ids[j]].end)){
+		if(nodeArray.includes(edges[edges_ids[j]].start+"") && nodeArray.includes(edges[edges_ids[j]].end+"")){
 
 
-
+lines_ids.push('id_'+edges_ids[j])
 map.addLayer({
     id: 'id_'+edges_ids[j],
     type:"line",
