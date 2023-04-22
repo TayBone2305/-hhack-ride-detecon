@@ -75,49 +75,49 @@ var graph = {};
 
 	for (let i = 0; i < radwege.features.length; i++) { 
 
-		element = radwege.features[i]
+		elem = radwege.features[i]
 
-		edges[element.properties.gml_id] = {
+		edges[elem.properties.gml_id] = {
 			'length': 1, 
-			'geometry': element.geometry,
-			'start': element.properties.source,
-			'end': element.properties.target
+			'geometry': elem.geometry,
+			'start': elem.properties.source,
+			'end': elem.properties.target
 		}
 
 
 
-		if (nodes[element.properties.source] == undefined){
-			nodes[element.properties.source] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][0]}
+		if (nodes[elem.properties.source] == undefined){
+			nodes[elem.properties.source] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][0]}
 		}else{
-			nodes[element.properties.source]['edges'].push(element.properties.gml_id)
-			//console.log(nodes[element.properties.source]['edges'])
+			nodes[elem.properties.source]['edges'].push(elem.properties.gml_id)
+			//console.log(nodes[elem.properties.source]['edges'])
 		}
 
-		if (nodes[element.properties.target] == undefined){
-			nodes[element.properties.target] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][element.geometry.coordinates.length-1]}
+		if (nodes[elem.properties.target] == undefined){
+			nodes[elem.properties.target] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][elem.geometry.coordinates.length-1]}
 		}else{
-			nodes[element.properties.target]['edges'].push(element.properties.gml_id)
-			//console.log(nodes[element.properties.target]['edges'])
-		}
-
-
-
-
-
-
-		if (graph[element.properties.source] == undefined){
-			graph[element.properties.source] = {element.properties.target: element.properties.breite} //todo: change to length
-		}else{
-			graph[element.properties.source][element.properties.target] = element.properties.breite
-			//console.log(nodes[element.properties.source]['edges'])
+			nodes[elem.properties.target]['edges'].push(elem.properties.gml_id)
+			//console.log(nodes[elem.properties.target]['edges'])
 		}
 
 
-		if (graph[element.properties.target] == undefined){
-			graph[element.properties.target] = {element.properties.source: element.properties.breite} //todo: change to length
+
+
+
+
+		if (graph[elem.properties.source] == undefined){
+			graph[elem.properties.source] = {elem.properties.target: elem.properties.breite} //todo: change to length
 		}else{
-			graph[element.properties.target][element.properties.source] = element.properties.breite
-			//console.log(nodes[element.properties.source]['edges'])
+			graph[elem.properties.source][elem.properties.target] = elem.properties.breite
+			//console.log(nodes[elem.properties.source]['edges'])
+		}
+
+
+		if (graph[elem.properties.target] == undefined){
+			graph[elem.properties.target] = {elem.properties.source: elem.properties.breite} //todo: change to length
+		}else{
+			graph[elem.properties.target][elem.properties.source] = elem.properties.breite
+			//console.log(nodes[elem.properties.source]['edges'])
 		}
 
 
@@ -138,8 +138,8 @@ function getClosestNode(search_coord){
 	var best_option = '';
 	var current_distance = 9999999;
 
-	for id, element in nodes.items(){
-    	if ( best_option === '' || getDistance(search_coord, element.coordinates) < current_distance ){
+	for id, elem in nodes.items(){
+    	if ( best_option === '' || getDistance(search_coord, elem.coordinates) < current_distance ){
 
     		best_option = id
 
