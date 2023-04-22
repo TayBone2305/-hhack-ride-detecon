@@ -65,7 +65,7 @@ var nodes = {};
 var edges = {};
 
 
-  fetch("./Fahrradwege_routing_2.geojson")
+  fetch("./Fahrradwege_routing.geojson")
 .then(response => {
    return response.json();
 })
@@ -104,6 +104,11 @@ var edges = {};
 
 
 });
+
+
+/*function getClosestNode(coord){
+	return 2348;
+}*/
 
 
 /*function routing(coordA, coordB){
