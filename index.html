@@ -65,7 +65,7 @@ var nodes = {};
 var edges = {};
 
 
-  fetch("./Fahrradwege_routing.geojson")
+  fetch("./Fahrradwege_routing_2.geojson")
 .then(response => {
    return response.json();
 })
@@ -96,11 +96,20 @@ var edges = {};
 			nodes[element.properties.target]['edges'].push(element.properties.gml_id)
 			console.log(nodes[element.properties.target]['edges'])
 		}
+
+
+
 }
 
 
 
 });
+
+
+/*function routing(coordA, coordB){
+
+}*/
+
 
 </script>
 
