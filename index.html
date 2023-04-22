@@ -30,7 +30,33 @@ dragRotate: false,
 boxZoom: false,
 scrollZoom: false
 });
+
+
+const marker2 = new mapboxgl.Marker({draggable: true}).setLngLat([10.02009, 53.5558]).addTo(map);
+const marker1 = new mapboxgl.Marker({draggable: true}).setLngLat([10.02006, 53.5555]).addTo(map);
+
+
+
+
+
+
+/*
+
+function onDragEnd() {
+const lngLat1 = marker1.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML = `Longitude: ${lngLat1.lng}<br />Latitude: ${lngLat1.lat}`;
+const lngLat2 = marker2.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML = `Longitude: ${lngLat2.lng}<br />Latitude: ${lngLat2.lat}`;
+}
+marker1.on('dragend', onDragEnd);
+marker2.on('dragend', onDragEnd);
+
+*/
+
 </script>
+
 
 <script type="text/javascript">
 
@@ -59,9 +85,9 @@ var edges = {};
 
 		if (nodes[element.properties.source] == undefined){
 			nodes[element.properties.source] = {'edges' = [element.properties.gml_id]}
-		}else{
+		}/*else{
 			nodes[element.properties.source]['edges'] += element.properties.gml_id
-		}
+		}*/
 }
 
 
