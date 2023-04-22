@@ -86,15 +86,15 @@ var edges = {};
 		if (nodes[element.properties.source] == undefined){
 			nodes[element.properties.source] = {'edges' : [element.properties.gml_id]}
 		}else{
-			nodes[element.properties.source]['edges'] += element.properties.gml_id
-			console.log(nodes[element.properties.source]['edges'].length)
+			nodes[element.properties.source]['edges'].push(element.properties.gml_id)
+			console.log(nodes[element.properties.source]['edges'])
 		}
 
 		if (nodes[element.properties.target] == undefined){
 			nodes[element.properties.target] = {'edges' : [element.properties.gml_id]}
 		}else{
-			nodes[element.properties.target]['edges'] += element.properties.gml_id
-			console.log(nodes[element.properties.target]['edges'].length)
+			nodes[element.properties.target]['edges'].push(element.properties.gml_id)
+			console.log(nodes[element.properties.target]['edges'])
 		}
 }
 
