@@ -87,7 +87,7 @@ var edges = {};
 			nodes[element.properties.source] = {'edges' : [element.properties.gml_id]}
 		}else{
 			nodes[element.properties.source]['edges'] += element.properties.gml_id
-			console.log(nodes[element.properties.target]['edges'])
+			console.log(nodes[element.properties.source]['edges'])
 		}
 
 		if (nodes[element.properties.target] == undefined){
