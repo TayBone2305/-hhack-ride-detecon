@@ -56,6 +56,12 @@ var edges = {};
 			'start': element.properties.source,
 			'end': element.properties.target
 		}
+
+		if (nodes[element.properties.source] == undefined){
+			nodes[element.properties.source] = {'edges' = [element.properties.gml_id]}
+		}else{
+			nodes[element.properties.source]['edges'] += element.properties.gml_id
+		}
 }
 
 
