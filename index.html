@@ -56,7 +56,7 @@ marker_start.on('dragend', function(){
 	lngLat = marker_start.getLngLat()
 	//console.log([lngLat.lat,lngLat.lng])
 
-	node_start = getClosestNode([lngLat.lat,lngLat.lng])
+	node_start = getClosestNode([lngLat.lng,lngLat.lat])
 	console.log(node_start)
 	marker_start.setLngLat[lngLat.lng,lngLat.lat] //check orientation of lng and lat
 });
