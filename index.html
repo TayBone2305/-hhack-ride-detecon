@@ -226,12 +226,12 @@ let findShortestPath = (graph, startNode, endNode) => {
 
 
 
-function getClosestNode(search_coord){
+function getClosestNode2(search_coord){
 
 	var best_option = '';
 	var current_distance = 9999999;
 
-	for id, elem in nodes.items(){
+	for (let [id, elem] in nodes){
     	if ( best_option === '' || getDistance(search_coord, elem.coordinates) < current_distance ){
 
     		best_option = id
