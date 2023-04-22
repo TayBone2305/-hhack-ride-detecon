@@ -86,7 +86,15 @@ var edges = {};
 		if (nodes[element.properties.source] == undefined){
 			nodes[element.properties.source] = {'edges' : [element.properties.gml_id]}
 		}else{
+			console.log('duplicate '+element.properties.target)
 			nodes[element.properties.source]['edges'] += element.properties.gml_id
+		}
+
+		if (nodes[element.properties.target] == undefined){
+			nodes[element.properties.target] = {'edges' : [element.properties.gml_id]}
+		}else{
+			console.log('duplicate '+element.properties.target)
+			nodes[element.properties.target]['edges'] += element.properties.gml_id
 		}
 }
 
