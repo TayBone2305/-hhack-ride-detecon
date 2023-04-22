@@ -84,30 +84,50 @@ var graph = {};
 			'end': element.properties.target
 		}
 
+
+
 		if (nodes[element.properties.source] == undefined){
 			nodes[element.properties.source] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][0]}
 		}else{
 			nodes[element.properties.source]['edges'].push(element.properties.gml_id)
-			console.log(nodes[element.properties.source]['edges'])
+			//console.log(nodes[element.properties.source]['edges'])
 		}
 
 		if (nodes[element.properties.target] == undefined){
 			nodes[element.properties.target] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][element.geometry.coordinates.length-1]}
 		}else{
 			nodes[element.properties.target]['edges'].push(element.properties.gml_id)
-			console.log(nodes[element.properties.target]['edges'])
+			//console.log(nodes[element.properties.target]['edges'])
 		}
 
 
 
+
+
+
+		if (graph[element.properties.source] == undefined){
+			graph[element.properties.source] = {element.properties.target: element.properties.breite} //todo: change to length
+		}else{
+			graph[element.properties.source][element.properties.target] = element.properties.breite
+			//console.log(nodes[element.properties.source]['edges'])
+		}
+
+
+		if (graph[element.properties.target] == undefined){
+			graph[element.properties.target] = {element.properties.source: element.properties.breite} //todo: change to length
+		}else{
+			graph[element.properties.target][element.properties.source] = element.properties.breite
+			//console.log(nodes[element.properties.source]['edges'])
+		}
+
+
+
+
+
+
+
 }
 
-/*for ((id, element) in nodes.items()){
-	for (connection in element.edges){
-		console.log(id+' '+connection)
-	}
-}
-*/
 
 
 });
