@@ -35,13 +35,32 @@ scrollZoom: false
 <script type="text/javascript">
 
 var radwege = '';
+var nodes = {};
+var edges = {};
 
-  const response = fetch('./Fahrradwege_routing.geojson');
-  const jsonData = response.then(function(result){
 
-  	radwege = result;
-  	console.log(result);
-  });
+  fetch("./Fahrradwege_routing.geojson")
+.then(response => {
+   return response.json();
+})
+.then((data) => {
+	radwege = data
+
+	for (let i = 0; i < radwege.features.length; i++) { 
+
+		element = radwege.features[i]
+
+		edges[element.properties.gml_id] = {
+			'length': 1, 
+			'geometry': element.geometry,
+			'start': element.properies.source,
+			'end': element.properies.target
+		}
+}
+
+
+
+});
 
 </script>
 
