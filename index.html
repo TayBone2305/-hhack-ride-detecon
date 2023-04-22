@@ -84,14 +84,14 @@ var edges = {};
 		}
 
 		if (nodes[element.properties.source] == undefined){
-			nodes[element.properties.source] = {'edges' : [element.properties.gml_id]}
+			nodes[element.properties.source] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][0]}
 		}else{
 			nodes[element.properties.source]['edges'].push(element.properties.gml_id)
 			console.log(nodes[element.properties.source]['edges'])
 		}
 
 		if (nodes[element.properties.target] == undefined){
-			nodes[element.properties.target] = {'edges' : [element.properties.gml_id]}
+			nodes[element.properties.target] = {'edges' : [element.properties.gml_id], 'coordinates': element.geometry.coordinates[0][element.geometry.coordinates.length-1]}
 		}else{
 			nodes[element.properties.target]['edges'].push(element.properties.gml_id)
 			console.log(nodes[element.properties.target]['edges'])
