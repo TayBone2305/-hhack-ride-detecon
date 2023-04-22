@@ -14,7 +14,6 @@
         <div class="map" id="map"></div>  
 	</div>
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="proj4.js"></script>
 <div id="map"></div>
 
 <script>
@@ -74,8 +73,6 @@ var nodes = {};
 var edges = {};
 var graph = {};
 
-var utm = "+proj=utm +zone=32";
-var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 
 
   fetch("./Fahrradwege_routing_3.geojson")
@@ -99,14 +96,14 @@ var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 
 
 		if (nodes[elem.properties.source] == undefined){
-			nodes[elem.properties.source] = {'edges' : [elem.properties.gml_id], 'coordinates': proj4(utm,wgs84,elem.geometry.coordinates[0][0])}
+			nodes[elem.properties.source] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][0]}
 		}else{
 			nodes[elem.properties.source]['edges'].push(elem.properties.gml_id)
 			//console.log(nodes[elem.properties.source]['edges'])
 		}
 
 		if (nodes[elem.properties.target] == undefined){
-			nodes[elem.properties.target] = {'edges' : [elem.properties.gml_id], 'coordinates': proj4(utm,wgs84,elem.geometry.coordinates[0][elem.geometry.coordinates.length-1])}
+			nodes[elem.properties.target] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][elem.geometry.coordinates.length-1]}
 		}else{
 			nodes[elem.properties.target]['edges'].push(elem.properties.gml_id)
 			//console.log(nodes[elem.properties.target]['edges'])
