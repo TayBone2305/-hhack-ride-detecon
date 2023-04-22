@@ -102,9 +102,10 @@ var graph = {};
 
 }
 
-for id, element in nodes.items(){
-	for connection in element.edges
+for ((id, element) in nodes.items()){
+	for (connection in element.edges){
 		console.log(id+' '+connection)
+	}
 }
 
 
