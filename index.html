@@ -119,17 +119,17 @@ var graphComfort = {};
 
 		if (graphBasic[elem.properties.source] == undefined){
 			graphBasic[elem.properties.source] = {}
-			graphBasic[elem.properties.source][elem.properties.target] = 1 // //todo: change to length
+			graphBasic[elem.properties.source][elem.properties.target] = elem.properties.length // //todo: change to length
 		}else{
-			graphBasic[elem.properties.source][elem.properties.target] = 1 //  // TODO change to actual length
+			graphBasic[elem.properties.source][elem.properties.target] = elem.properties.length //  // TODO change to actual length
 		}
 
 
 		if (graphBasic[elem.properties.target] == undefined){
 			graphBasic[elem.properties.target] = {}
-			graphBasic[elem.properties.target][elem.properties.source] = 1 // elem.properties.breite todo: change to actual length
+			graphBasic[elem.properties.target][elem.properties.source] = elem.properties.length // elem.properties.breite todo: change to actual length
 		}else{
-			graphBasic[elem.properties.target][elem.properties.source] = 1 // elem.properties.breite //todo: change to actual length
+			graphBasic[elem.properties.target][elem.properties.source] = elem.properties.length // elem.properties.breite //todo: change to actual length
 			
 		}
 
