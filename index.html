@@ -23,8 +23,8 @@ const map = new mapboxgl.Map({
 container: 'map', // container ID
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
 style: 'mapbox://styles/mapbox/streets-v12', // style URL
-center: [10.020099006029522, 53.55569974043304], // starting position [lng, lat]
-zoom: 11, // starting zoom
+center: [[10.01, 53.557]], // starting position [lng, lat]
+zoom: 13.5, // starting zoom
 doubleClickZoom: false,
 dragPan: false,
 dragRotate: false,
@@ -131,6 +131,16 @@ var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 			graph[elem.properties.target][elem.properties.source] = elem.properties.breite
 			//console.log(nodes[elem.properties.source]['edges'])
 		}
+	}
+
+
+
+
+var markers = []
+	for ( let id in nodes){
+		
+		markers.push(new mapboxgl.Marker({draggable: true}).setLngLat(nodes[id].coordinates).addTo(map)).setOccludedOpacity(0.2)
+;
 	}
 
 });
