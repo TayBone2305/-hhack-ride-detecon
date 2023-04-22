@@ -49,6 +49,8 @@ marker_start.on('dragend', function(){
 	console.log(node_start)
 
 	marker_start.setLngLat(nodes[node_start].coordinates)
+
+	routing(node_start, node_end)
 });
 
 marker_end.on('dragend', function(){
@@ -58,6 +60,8 @@ marker_end.on('dragend', function(){
 	console.log(node_start)
 
 	marker_end.setLngLat(nodes[node_end].coordinates)
+	
+	routing(node_start, node_end)
 });
 
 
