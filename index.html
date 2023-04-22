@@ -106,7 +106,8 @@ var graph = {};
 
 
 		if (graph[elem.properties.source] == undefined){
-			graph[elem.properties.source] = {elem.properties.target: elem.properties.breite} //todo: change to length
+			graph[elem.properties.source] = {}
+			graph[elem.properties.source][elem.properties.target] = elem.properties.breite //todo: change to length
 		}else{
 			graph[elem.properties.source][elem.properties.target] = elem.properties.breite
 			//console.log(nodes[elem.properties.source]['edges'])
@@ -114,7 +115,9 @@ var graph = {};
 
 
 		if (graph[elem.properties.target] == undefined){
-			graph[elem.properties.target] = {elem.properties.source: elem.properties.breite} //todo: change to length
+			graph[elem.properties.target] = {}
+			graph[elem.properties.target][elem.properties.source] = elem.properties.breite
+			//graph[elem.properties.target] = {elem.properties.source: elem.properties.breite} //todo: change to length
 		}else{
 			graph[elem.properties.target][elem.properties.source] = elem.properties.breite
 			//console.log(nodes[elem.properties.source]['edges'])
