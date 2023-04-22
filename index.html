@@ -32,20 +32,18 @@ scrollZoom: false
 });
 
 
-const marker_start = new mapboxgl.Marker({draggable: true}).setLngLat([9.02009, 53.5558]).addTo(map);
-const marker_end = new mapboxgl.Marker({draggable: true}).setLngLat([11.02006, 53.5555]).addTo(map);
+const marker_start = new mapboxgl.Marker({draggable: true}).setLngLat([9.9888, 53.5558]).addTo(map);
+const marker_end = new mapboxgl.Marker({draggable: true}).setLngLat([10.05006, 53.5555]).addTo(map);
 
 
 
 
 
 node_start = ''
-node_end = 
+node_end = ''
 
 
-function onDragEnd() {
-
-}/*
+/*
 const lngLat1 = marker1.getLngLat();
 coordinates.style.display = 'block';
 coordinates.innerHTML = `Longitude: ${lngLat1.lng}<br />Latitude: ${lngLat1.lat}`;
