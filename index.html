@@ -96,14 +96,14 @@ var graph = {};
 
 
 		if (nodes[elem.properties.source] == undefined){
-			nodes[elem.properties.source] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][0]}
+			nodes[elem.properties.source] = {'edges' : [elem.properties.gml_id], 'coordinates': proj4(utm,wgs84,elem.geometry.coordinates[0][0])}
 		}else{
 			nodes[elem.properties.source]['edges'].push(elem.properties.gml_id)
 			//console.log(nodes[elem.properties.source]['edges'])
 		}
 
 		if (nodes[elem.properties.target] == undefined){
-			nodes[elem.properties.target] = {'edges' : [elem.properties.gml_id], 'coordinates': elem.geometry.coordinates[0][elem.geometry.coordinates.length-1]}
+			nodes[elem.properties.target] = {'edges' : [elem.properties.gml_id], 'coordinates': proj4(utm,wgs84,elem.geometry.coordinates[0][elem.geometry.coordinates.length-1])}
 		}else{
 			nodes[elem.properties.target]['edges'].push(elem.properties.gml_id)
 			//console.log(nodes[elem.properties.target]['edges'])
