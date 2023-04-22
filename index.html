@@ -53,8 +53,8 @@ coordinates.innerHTML = `Longitude: ${lngLat2.lng}<br />Latitude: ${lngLat2.lat}
 }*/
 marker_start.on('dragend', function(){
 	lngLat = marker_start.getLngLat()
-	console.log([lngLat.lat,lngLat.lng])
-	//getClosestNode([lngLat.lat,lngLat.lng])
+	//console.log([lngLat.lat,lngLat.lng])
+	console.log(getClosestNode([lngLat.lat,lngLat.lng]))
 });
 marker_end.on('dragend', function(){});
 
@@ -230,7 +230,7 @@ function getClosestNode(search_coord){
 	var current_distance = 9999999;
 
 	for (let [id, elem] in nodes){
-    	if ( best_option === '' || getDistance(search_coord, elem.coordinates) < current_distance ){
+    	if ( elem != undefined || best_option === '' || getDistance(search_coord, elem.coordinates) < current_distance ){
 
     		best_option = id
 
