@@ -57,7 +57,7 @@ marker_end.on('dragend', function(){
 	lngLat = marker_end.getLngLat()
 
 	node_end = getClosestNode([lngLat.lng,lngLat.lat])
-	console.log(node_start)
+	console.log(node_end)
 
 	marker_end.setLngLat(nodes[node_end].coordinates)
 
@@ -274,7 +274,7 @@ function getClosestNode(search_coord){
 
 
 function routing(start_node, end_node){
-	path = findShortestPath(graphBasic, start_node, end_node)
+	path = findShortestPath(graphBasic, start_node, end_node).path
 
 	drawPath(path)
 }
