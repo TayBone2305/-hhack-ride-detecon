@@ -32,7 +32,7 @@ scrollZoom: false
 });
 
 
-const marker_start = new mapboxgl.Marker({draggable: true}).setLngLat([9.9888, 53.5558]).addTo(map);
+const marker_start = new mapboxgl.Marker({draggable: true}).setLngLat([10.0888, 53.5558]).addTo(map);
 const marker_end = new mapboxgl.Marker({draggable: true}).setLngLat([10.05006, 53.5555]).addTo(map);
 
 
@@ -43,23 +43,23 @@ node_start = ''
 node_end = ''
 
 
-/*
-const lngLat1 = marker1.getLngLat();
-coordinates.style.display = 'block';
-coordinates.innerHTML = `Longitude: ${lngLat1.lng}<br />Latitude: ${lngLat1.lat}`;
-const lngLat2 = marker2.getLngLat();
-coordinates.style.display = 'block';
-coordinates.innerHTML = `Longitude: ${lngLat2.lng}<br />Latitude: ${lngLat2.lat}`;
-}*/
 marker_start.on('dragend', function(){
 	lngLat = marker_start.getLngLat()
-	//console.log([lngLat.lat,lngLat.lng])
 
 	node_start = getClosestNode([lngLat.lng,lngLat.lat])
 	console.log(node_start)
-	marker_start.setLngLat[lngLat.lng,lngLat.lat] //check orientation of lng and lat
+
+	marker_start.setLngLat(nodes[node_start].coordinates)
 });
-marker_end.on('dragend', function(){});
+
+marker_end.on('dragend', function(){
+	lngLat = marker_end.getLngLat()
+
+	node_end = getClosestNode([lngLat.lng,lngLat.lat])
+	console.log(node_start)
+
+	marker_end.setLngLat(nodes[node_end].coordinates)
+});
 
 
 
