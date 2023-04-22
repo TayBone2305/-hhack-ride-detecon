@@ -234,9 +234,11 @@ function getClosestNode(search_coord){
 	var current_distance = 9999999;
 
 	for (let id in nodes){
-    	if ( nodes[id] != undefined || best_option === '' || getDistance(search_coord, nodes[id].coordinates) < current_distance ){
+		dist = getDistance(search_coord, nodes[id].coordinates)
+    	if ( nodes[id] != undefined && (best_option === '' || dist < current_distance )){
 
     		best_option = id
+    		current_distance = dist
 
     	}
 	}
