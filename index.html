@@ -63,6 +63,7 @@ marker2.on('dragend', onDragEnd);
 var radwege = '';
 var nodes = {};
 var edges = {};
+var graph = {};
 
 
   fetch("./Fahrradwege_routing.geojson")
@@ -101,19 +102,40 @@ var edges = {};
 
 }
 
+for id, element in nodes.items(){
+	for connection in element.edges
+		console.log(id+' '+connection)
+}
+
 
 
 });
 
+/*
+function getClosestNode(search_coord){
 
-/*function getClosestNode(coord){
-	return 2348;
-}*/
+	var best_option = '';
+	var current_distance = 9999999;
 
+	for id, element in nodes.items(){
+    	if ( best_option === '' || getDistance(search_coord, element.coordinates) < current_distance ){
 
-/*function routing(coordA, coordB){
+    		best_option = id
 
-}*/
+    	}
+	}
+
+	return best_option;
+}
+
+*/
+function routing(coordA, coordB){
+
+}
+
+function getDistance(coordA, coordB){
+	return 10; //should always be positive
+}
 
 
 </script>
