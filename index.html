@@ -32,28 +32,35 @@ scrollZoom: false
 });
 
 
-const marker2 = new mapboxgl.Marker({draggable: true}).setLngLat([10.02009, 53.5558]).addTo(map);
-const marker1 = new mapboxgl.Marker({draggable: true}).setLngLat([10.02006, 53.5555]).addTo(map);
+const marker_start = new mapboxgl.Marker({draggable: true}).setLngLat([9.02009, 53.5558]).addTo(map);
+const marker_end = new mapboxgl.Marker({draggable: true}).setLngLat([11.02006, 53.5555]).addTo(map);
 
 
 
 
 
+node_start = ''
+node_end = 
 
-/*
 
 function onDragEnd() {
+
+}/*
 const lngLat1 = marker1.getLngLat();
 coordinates.style.display = 'block';
 coordinates.innerHTML = `Longitude: ${lngLat1.lng}<br />Latitude: ${lngLat1.lat}`;
 const lngLat2 = marker2.getLngLat();
 coordinates.style.display = 'block';
 coordinates.innerHTML = `Longitude: ${lngLat2.lng}<br />Latitude: ${lngLat2.lat}`;
-}
-marker1.on('dragend', onDragEnd);
-marker2.on('dragend', onDragEnd);
+}*/
+marker_start.on('dragend', function(){
+	lngLat = marker_start.getLngLat()
+	console.log([lngLat.lat,lngLat.lng])
+	//getClosestNode([lngLat.lat,lngLat.lng])
+};
+marker_end.on('dragend', function(){});
 
-*/
+
 
 </script>
 
@@ -218,7 +225,7 @@ let findShortestPath = (graph, startNode, endNode) => {
 };
 
 
-/*
+
 function getClosestNode(search_coord){
 
 	var best_option = '';
@@ -235,7 +242,7 @@ function getClosestNode(search_coord){
 	return best_option;
 }
 
-*/
+
 function routing(coordA, coordB){
 
 }
@@ -250,6 +257,9 @@ function getDistance(coordA, coordB){
 	lat2 = coordB[0]
 	lon2 = coordB[1]
 
+
+	return Math.sqrt((lat1-lat2)**2+(lon1-lon2)**2);
+/*
         const R = 6371; // radius of the earth in km
         const dLat = (lat2 - lat1) * Math.PI / 180;
         const dLon = (lon2 - lon1) * Math.PI / 180;
@@ -259,9 +269,9 @@ function getDistance(coordA, coordB){
         Math.sin(dLon / 2) * Math.sin(dLon / 2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         const d = R * c; // distance in km
-        
+
         if d >= 0: return d;
-        return -d;
+        return -d;*/
       }
 
 
